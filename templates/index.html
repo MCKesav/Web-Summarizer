@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Text Summarizer - Summarize articles and texts online"
+    />
+    <title>Text Summarizer</title>
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <style>
+      /* Add custom CSS to style the output container */
+      .summarino-box {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-4">Summarino</h1>
+      <div class="card mt-4">
+        <div class="card-body">
+          <form action="/summarize" method="POST">
+            <div class="form-group">
+              <div class="text-center">
+                <label for="article-url" class="input-label"
+                  >You can either enter a URL or paste the text:</label
+                >
+              </div>
+              <input
+                type="text"
+                name="input_text"
+                id="article-url"
+                class="form-control form-control-lg"
+                placeholder="Enter Article URL"
+              />
+            </div>
+            <div class="form-group">
+              <p class="mb-1 text-center input-subtext">OR</p>
+              <textarea
+                name="input_text"
+                id="article-text"
+                class="form-control form-control-lg"
+                rows="5"
+                placeholder="Paste Article Text"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="summarize-button"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              Summarize this
+            </button>
+          </form>
+        </div>
+        <div class="card-body">
+          <h2 class="text-center">Output</h2>
+          <!-- Remove the textarea and use the custom output container -->
+          <div class="summarino-box mt-4" id="summary-container"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../static/js/index.js"></script>
+  </body>
+</html>
